@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta
+      name="description"
+      content="Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI."
+    />
+    <meta name="keywords" content="Semantic-UI, Theme, Design, Template" />
+    <meta name="author" content="PPType" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Login Template for Semantic-UI</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+      type="text/css"
+    />
+    <style type="text/css">
+      body {
+        background-color: #fafafa;
+        -webkit-font-smoothing: antialiased;
+        -moz-font-smoothing: grayscale;
+      }
+
+      body > .ui.grid {
+        height: 100%;
+      }
+
+      .column {
+        max-width: 600px;
+      }
+    </style>
+    <title></title>
+  </head>
+    <body id="root">
+      <div class="ui middle aligned center aligned grid">
+        <div class="column">
+        <div class="row">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category , message in messages %}
+
+          <div class="sixteen wide stretched column">
+
+            <div class="ui {{ category }} message">
+              <i class="close icon"></i>
+              <div class="header">
+                {{message}}
+              </div>
+            </div>
+        </div>
+          {% endfor %}
+        {% endif %}
+        {% endwith %}
+      </div>
+
+
+        <div class="row">
+          <h2 class="ui teal center aligned header">
+            <img class="image" src="./static/images/logo.png" /> LOGIN
+          </h2>
+          <form class="ui large form" method="post">
+            <div class="ui stacked segment">
+
+              {{ form.hidden_tag() }}
+              <div class="equal width fields">
+                <div class="required field">
+                  <div class="ui left icon input">
+                    <i class="user icon"></i>
+                    {{ form.username(placeholder="Username") }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="equal width fields">
+                <div class="required field">
+                  <div class="ui left icon input">
+                    <i class="lock icon"></i>
+                    {{ form.password(placeholder="Password") }}
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="equal width fields">
+                <div class="inline field">
+
+                    {{ form.remember(type="checkbox", tabindex="0",class="hidden") }}
+                    <label>remember me</label>
+
+                </div>
+              </div>
+
+              {{ form.submit(class="ui fluid large teal submit button") }}
+
+            </div>
+
+          </form>
+        </div>
+
+        </div>
+      </div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+      <script>
+        $(document).ready(function() {
+          $(".ui.toggle.button").click(function() {
+            $(".mobile.only.grid .ui.vertical.menu").toggle(100);
+        });
+
+          $(".ui.dropdown").dropdown();
+
+          $(function () {
+            $('#register_birthdate').datetimepicker();
+          });
+        }
+        )
+
+        $('.message .close').on('click', function() {
+          $(this).closest('.message').fadeOut();
+        });
+      </script>
+  </body>
+</html>

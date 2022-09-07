@@ -1,0 +1,66 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<div class="sixteen wide computer five wide tablet column">
+  <form class="ui large form" method="post">
+    <div class="ui stacked segment">
+
+      {{ form.hidden_tag() }}
+
+
+
+
+      <div class="equal width fields">
+        <div class="field dw-font">
+
+          <label>{{ form.birthdate.label() }}</label>
+          <div class="ui calendar">
+
+            {{ form.birthdate(type="date", placeholder=current_user.birthdate) }}
+
+          </div>
+        </div>
+        <div class="field dw-font">
+          <label>{{ form.city.label() }}</label>
+
+            {{ form.city(placeholder=current_user.city) }}
+
+
+        </div>
+      </div>
+
+      <div class="equal width fields">
+        <div class="field dw-font">
+          <label>{{ form.edu_field.label() }}</label>
+
+            {{ form.edu_field(placeholder=current_user.edu_field) }}
+
+
+        </div>
+        <div class="field dw-font">
+          <label>{{ form.ent_year.label() }}</label>
+          {{ form.ent_year(placeholder="2016") }}
+        </div>
+      </div>
+
+      <div class="equal width fields">
+        <div class="field dw-font">
+          <label>{{ form.sen_light.label() }}</label>
+          {{ form.sen_light(type="checkbox") }}
+        </div>
+        <div class="field dw-font">
+          <label>{{ form.sen_sound.label() }}</label>
+          {{ form.sen_sound(type="checkbox") }}
+        </div>
+      </div>
+
+      {{ form.submit(class="ui fluid large teal submit button dw-font") }}
+
+    </div>
+
+  </form>
+</div>
+
+
+{% endblock content %}

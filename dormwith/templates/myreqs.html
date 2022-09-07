@@ -1,0 +1,60 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<div class="sixteen wide computer five wide tablet column">
+    <div class="ui segment">
+
+
+      <div class="ui divided items">
+
+        {% for req in reqs %}
+
+        <div class="item ">
+          <div class="content dw-font">
+            <a class="header">آگهی دهنده {{req.related_advertisement.advertiser.firstname}} {{req.related_advertisement.advertiser.lastname}}</a>
+
+              <div class="ui right floated hide-in-mobile" style="text-align: left;">
+                  <div class="ui horizontal link list">
+                      <div class="item">{{req.date_req.strftime('%d %B %Y | %H:%M:%S')}}</div>
+                  </div>
+                  <div>
+
+                  {% if req.status == 0   %}
+                      <a class="ui grey button" >دیده نشده</a>
+                  {% endif %}
+                  {% if req.status == 2   %}
+                      <a class="ui green button" >تایید شده</a>
+                  {% endif %}
+                  {% if req.status == 1   %}
+                      <a class="ui red button" >رد شده</a>
+                  {% endif %}
+
+
+
+
+
+                      <a class="ui basic icon button jobs-share-button"  href="{{ url_for('del_req', req_id=req.id) }}">
+                          <i class="trash alternate icon"></i>
+                      </a>
+                  </div>
+                </div>
+
+                <div class="description">
+                  <p>{{req.related_advertisement.message}}</p>
+                </div>
+
+              </div>
+          </div>
+
+          {% endfor %}
+
+
+
+      </div>
+
+    </div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,76 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<div class="sixteen wide computer five wide tablet column">
+    <div class="ui segment">
+
+
+      <div class="ui divided items">
+
+        {% for req in reqs %}
+
+        <div class="item ">
+          <div class="content dw-font">
+            <a class="header">آگهی دهنده {{req.requester.firstname}} {{req.requester.lastname}}</a>
+
+              <div class="ui right floated hide-in-mobile" style="text-align: left;">
+                  <div class="ui horizontal link list">
+                      <div class="item">{{req.date_req.strftime('%d %B %Y | %H:%M:%S')}}</div>
+                  </div>
+                  <div>
+
+
+                    {% if req.status==0   %}
+                    <a class="ui green basic icon button"  href="{{ url_for('change_status', req_id=req.id, status=2) }}">
+                        <i class="check icon"></i>
+                    </a>
+                    <a class="ui red basic icon button"  href="{{ url_for('change_status', req_id=req.id, status=1) }}">
+                        <i class="close icon"></i>
+                    </a>
+                    {% endif %}
+
+                    {% if req.status == 2   %}
+                        <a class="ui green button" >تایید شده</a>
+                    {% endif %}
+                    {% if req.status == 1   %}
+                        <a class="ui red button" >رد شده</a>
+                    {% endif %}
+
+
+
+
+                  </div>
+                </div>
+
+                <div class="description">
+                  <p>{{req.related_advertisement.message}}</p>
+                </div>
+
+                <div class="extra">
+                  {% if req.requester.sen_sound   %}
+                    <div class="ui orange label">حساس به صدا</div>
+                  {% endif %}
+                  {% if req.requester.sen_light   %}
+                  <div class="ui yellow label">حساس به نور</div>
+                {% endif %}
+                <div class="ui purple label">{{req.requester.city}}</div>
+                <div class="ui blue label">{{req.requester.ent_year.strftime('%Y')}}</div>
+                <div class="ui pink label">{{req.requester.edu_field}}</div>
+
+                </div>
+
+              </div>
+          </div>
+
+          {% endfor %}
+
+
+
+      </div>
+
+    </div>
+</div>
+
+
+{% endblock content %}

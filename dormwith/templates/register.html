@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta
+      name="description"
+      content="Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI."
+    />
+    <meta name="keywords" content="Semantic-UI, Theme, Design, Template" />
+    <meta name="author" content="PPType" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Login Template for Semantic-UI</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+      type="text/css"
+    />
+    <style type="text/css">
+      body {
+        background-color: #fafafa;
+        -webkit-font-smoothing: antialiased;
+        -moz-font-smoothing: grayscale;
+      }
+
+      body > .ui.grid {
+        height: 100%;
+      }
+
+      .column {
+        max-width: 900px;
+      }
+    </style>
+    <title></title>
+  </head>
+    <body id="root">
+      <div class="ui middle aligned center aligned grid">
+        <div class="column">
+          <h2 class="ui teal center aligned header">
+            <img class="image" src="./static/images/logo.png" /> create an account
+          </h2>
+          <form class="ui large form" method="post">
+            <div class="ui stacked segment">
+
+              {{ form.hidden_tag() }}
+              <div class="equal width fields">
+                <div class="required field">
+                  <label>{{ form.username.label() }}</label>
+                  {% if form.username.errors %}
+                    {{ form.username(placeholder="Username") }}
+                    <div class="invalid-feedback">
+                      {% for error in form.username.errors %}
+                        <span>
+                          {{error}}
+                        </span>
+                      {% endfor %}
+
+                    </div>
+                  {% else %}
+                    {{ form.username(placeholder="Username") }}
+                  {% endif %}
+
+
+                </div>
+              </div>
+
+              <div class="equal width fields">
+                <div class="required field">
+                  <label>{{ form.password.label() }}</label>
+                  {% if form.password.errors %}
+                  {{ form.password(placeholder="Password") }}
+                    <div class="invalid-feedback">
+                      {% for error in form.password.errors %}
+                        <span>
+                          {{error}}
+                        </span>
+                      {% endfor %}
+
+                    </div>
+                  {% else %}
+                  {{ form.password(placeholder="Password") }}
+                  {% endif %}
+
+
+                </div>
+                <div class="required field">
+                  <label>{{ form.confirm_password.label() }}</label>
+                  {% if form.confirm_password.errors %}
+                  {{ form.confirm_password(placeholder="Confirm Password") }}
+                    <div class="invalid-feedback">
+                      {% for error in form.confirm_password.errors %}
+                        <span>
+                          {{error}}
+                        </span>
+                      {% endfor %}
+
+                    </div>
+                  {% else %}
+                  {{ form.confirm_password(placeholder="Confirm Password") }}
+                  {% endif %}
+
+
+                </div>
+              </div>
+
+              <div class="equal width fields">
+                <div class="required field">
+                  <label>{{ form.firstname.label() }}</label>
+                  {% if form.firstname.errors %}
+                  {{ form.firstname(placeholder="Firstname") }}
+                    <div class="invalid-feedback">
+                      {% for error in form.firstname.errors %}
+                        <span>
+                          {{error}}
+                        </span>
+                      {% endfor %}
+
+                    </div>
+                  {% else %}
+                  {{ form.firstname(placeholder="Firstname") }}
+                  {% endif %}
+
+                </div>
+                <div class="required field">
+                  <label>{{ form.lastname.label() }}</label>
+                  {% if form.lastname.errors %}
+                  {{ form.lastname(placeholder="Lastname") }}
+                    <div class="invalid-feedback">
+                      {% for error in form.lastname.errors %}
+                        <span>
+                          {{error}}
+                        </span>
+                      {% endfor %}
+
+                    </div>
+                  {% else %}
+                  {{ form.lastname(placeholder="Lastname") }}
+                  {% endif %}
+
+                </div>
+              </div>
+
+              <div class="equal width fields">
+                <div class="required field">
+
+                  <label>{{ form.birthdate.label() }}</label>
+                  <div class="ui calendar">
+                    {% if form.birthdate.errors %}
+                    {{ form.birthdate(type="date", placeholder="Date") }}
+                      <div class="invalid-feedback">
+                        {% for error in form.birthdate.errors %}
+                          <span>
+                            {{error}}
+                          </span>
+                        {% endfor %}
+
+                      </div>
+                    {% else %}
+                    {{ form.birthdate(type="date", placeholder="Date") }}
+                    {% endif %}
+
+                  </div>
+                </div>
+                <div class="required field">
+                  <label>{{ form.city.label() }}</label>
+                  {% if form.city.errors %}
+                  {{ form.city(placeholder="City") }}
+                      <div class="invalid-feedback">
+                        {% for error in form.city.errors %}
+                          <span>
+                            {{error}}
+                          </span>
+                        {% endfor %}
+
+                      </div>
+                    {% else %}
+                    {{ form.city(placeholder="City") }}
+                    {% endif %}
+
+                </div>
+              </div>
+
+              <div class="equal width fields">
+                <div class="required field">
+                  <label>{{ form.edu_field.label() }}</label>
+                  {% if form.edu_field.errors %}
+                  {{ form.edu_field(placeholder="Education Field") }}
+                      <div class="invalid-feedback">
+                        {% for error in form.edu_field.errors %}
+                          <span>
+                            {{error}}
+                          </span>
+                        {% endfor %}
+
+                      </div>
+                    {% else %}
+                    {{ form.edu_field(placeholder="Education Field") }}
+                    {% endif %}
+
+                </div>
+                <div class="required field">
+                  <label>{{ form.ent_year.label() }}</label>
+                  {{ form.ent_year(placeholder="Lastname") }}
+                </div>
+              </div>
+
+              <div class="equal width fields">
+                <div class="required field">
+                  <label>{{ form.sen_light.label() }}</label>
+                  {{ form.sen_light(type="checkbox") }}
+                </div>
+                <div class="required field">
+                  <label>{{ form.sen_sound.label() }}</label>
+                  {{ form.sen_sound(type="checkbox") }}
+                </div>
+              </div>
+
+              {{ form.submit(class="ui fluid large teal submit button") }}
+
+            </div>
+
+          </form>
+        </div>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"/>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"/>
+  </body>
+</html>

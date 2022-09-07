@@ -1,0 +1,48 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<div class="sixteen wide computer five wide tablet column">
+    <div class="ui segment">
+
+
+      <div class="ui divided items">
+
+        {% for adv in advs %}
+
+        <div class="item ">
+          <div class="content dw-font">
+            <a class="header">درخواست هم‌اتاقی</a>
+
+              <div class="ui right floated hide-in-mobile" style="text-align: left;">
+                  <div class="ui horizontal link list">
+                      <div class="item">{{adv.date_req}}</div>
+                  </div>
+                  <div>
+                    <a class="ui basic icon button jobs-share-button"  href="{{ url_for('advs_reqs', adv_id=adv.id) }}">
+                        <i class="list icon"></i>
+                    </a>
+                      <a class="ui basic icon button jobs-share-button"  href="{{ url_for('del_adv', adv_id=adv.id) }}">
+                          <i class="trash alternate icon"></i>
+                      </a>
+                  </div>
+                </div>
+
+                <div class="description">
+                  <p>{{adv.message}}</p>
+                </div>
+
+              </div>
+          </div>
+
+          {% endfor %}
+
+
+
+      </div>
+
+    </div>
+</div>
+
+
+{% endblock content %}

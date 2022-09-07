@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<div class="sixteen wide computer five wide tablet column">
+  <form class="ui large form" method="post">
+    <div class="ui stacked segment">
+
+      {{ form.hidden_tag() }}
+
+
+      <div class="equal width fields">
+        <div class="required field">
+          <div class="ui left icon input">
+            {{ form.message(placeholder="Message") }}
+          </div>
+        </div>
+      </div>
+
+
+
+      {{ form.submit(class="ui fluid large teal submit button") }}
+
+    </div>
+
+  </form>
+</div>
+
+
+{% endblock content %}

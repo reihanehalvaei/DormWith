@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no"
+    />
+    <meta
+      name="description"
+      content="Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI."
+    />
+    <meta name="keywords" content="Semantic-UI, Theme, Design, Template" />
+    <meta name="author" content="PPType" />
+    <meta name="theme-color" content="#fff" />
+    <title>DormWith</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='main.css') }}"
+
+  </head>
+  <body id="root" style="background-color: #fafafa;">
+
+
+      <div class="ui fixed borderless fluid menu">
+        <div class="ui container">
+
+          <a class="header item"><img class="logo" src="{{ url_for('static', filename='images/logo.png') }}"></a>
+
+          <div class="ui dropdown item dw-font">{{current_user.firstname}} {{current_user.lastname}}
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <a class="item" href="{{ url_for('me') }}">پروفایل کاربری</a>
+              <a class="item" href="{{ url_for('logout') }}">خروج</a>
+            </div>
+          </div>
+          <div class="right menu dw-font">
+
+
+            <a class="item
+                {% if page=='newadv' %}
+                  active
+                {% endif %}"
+                href="{{ url_for('new_adv') }}"
+               style="color: #b80d57">ایجاد آگهی جدید
+            &nbsp;<i class="edit icon"></i></a>
+
+              <a class="item
+                  {% if page=='myreqs' %}
+                    active
+                  {% endif %}"
+                 href="{{ url_for('my_reqs') }}"
+                 style="color: #00b5ad">درخواست های من
+              &nbsp;<i class="file icon"></i></a>
+
+
+              <a class="item
+                  {% if page=='myads' %}
+                    active
+                  {% endif %}"
+                href="{{ url_for('my_advs') }}"
+                style="color: #f6830f;">آگهی های من
+              &nbsp;<i class="list icon"></i></a>
+
+
+              <a class="item
+                  {% if page=='home' %}
+                    active
+                  {% endif %}"
+                href="{{ url_for('home') }}"
+                style="color: #cc2205">لیست آگهی ها
+              &nbsp;<i class="bullhorn icon"></i></a>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+    <div class="ui container" style="padding-top: 30px;">
+      <div class="ui grid">
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category , message in messages %}
+
+          <div class="sixteen wide stretched column">
+
+            <div class="ui {{ category }} message">
+              <i class="close icon"></i>
+              <div class="header">
+                {{message}}
+              </div>
+            </div>
+        </div>
+          {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+      {% block content %}{% endblock %}
+      </div>
+    </div>
+
+
+
+
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+      <script>
+        $(document).ready(function() {
+          $(".ui.toggle.button").click(function() {
+            $(".mobile.only.grid .ui.vertical.menu").toggle(100);
+        });
+
+          $(".ui.dropdown").dropdown();
+          $(".ui.active").dropdown();
+
+          $(function () {
+            $('#register_birthdate').datetimepicker();
+          });
+        }
+        )
+
+        $('.message .close').on('click', function() {
+          $(this).closest('.message').fadeOut();
+        });
+      </script>
+  </body>
+</html>

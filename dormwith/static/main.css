@@ -1,0 +1,95 @@
+@font-face {
+font-family: Vazir;
+src: url('http://fonts.codearena.ir/rastikerdar/vazir/vazir.eot');
+src: url('http://fonts.codearena.ir/rastikerdar/vazir/vazir.eot?#iefix') format('embedded-opentype'),
+     url('http://fonts.codearena.ir/rastikerdar/vazir/vazir.woff') format('woff'),
+     url('http://fonts.codearena.ir/rastikerdar/vazir/vazir.ttf') format('truetype');
+font-weight: normal;
+}
+
+body {
+  min-height: 2000px;
+  padding-top: 54px;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: grayscale;
+  background-color: #fafafa;
+}
+
+.dw-font {
+
+  direction:ltr;
+   margin: 0;
+   padding: 1em 1em .5em 2em;
+   font-family: 'Vazir', sans-serif;
+   font-size:14px;
+}
+
+.dw-logo {
+  height: 50%;
+}
+
+.dw-active {
+  background-color: #666;
+}
+
+.ui.menu {
+  background-color: #fff;
+  box-shadow: 3;
+  flex-wrap: wrap;
+  border: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.ui.borderless.menu .header.item {
+  font-size: 18px;
+  color: #000;
+  font-weight: 400;
+}
+.ui.borderless.menu .item {
+  color: #666;
+}
+
+
+.ui.mobile.only.grid .ui.menu .ui.vertical.menu {
+  display: none;
+}
+
+.ui.mobile.only.grid .ui.vertical.menu .dropdown.icon {
+  float: unset;
+}
+
+.ui.mobile.only.grid .ui.vertical.menu .dropdown.icon:before {
+  content: "\f0d7";
+}
+
+.ui.mobile.only.grid .ui.vertical.menu .ui.dropdown.item .menu {
+  position: static;
+  width: 100%;
+  background-color: unset;
+  border: none;
+  box-shadow: none;
+}
+
+.ui.mobile.only.grid .ui.vertical.menu .ui.dropdown.item .menu {
+  margin-top: 6px;
+}
+
+.ui.container > .ui.grid > .twelve.wide.stretched.column > .ui.segment {
+  background-color: #fff;
+  box-shadow: none;
+  padding: 5rem 4rem;
+  margin-top: 3rem;
+}
+
+.content.header {
+  font-size: 4.5rem;
+  color: #df7861;
+}
+
+.ui.segment p.lead {
+  font-size: 1.3rem;
+  color: #829f80;
+  line-height: 1.4;
+  font-weight: 300;
+}

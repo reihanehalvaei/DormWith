@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="twelve wide computer five wide tablet column">
+    <div class="ui segment">
+
+      <div class="ui divided items">
+
+        {% for adv in advs %}
+
+        <div class="item ">
+          <div class="content dw-font">
+            <a class="header">درخواست هم‌اتاقی</a>
+
+
+              <div class="ui right floated hide-in-mobile" style="text-align: left;">
+                  <div class="ui horizontal link list">
+                      <div class="item">{{adv.date_adv.strftime('%d %B %Y | %H:%M:%S')}}</div>
+                  </div>
+                  <div>
+                      <a class="ui basic icon button jobs-share-button" href="{{ url_for('new_req', adv_id=adv.id) }}">
+                          <i class="edit alternate icon"></i>
+                      </a>
+
+                  </div>
+                </div>
+
+                <div class="meta">
+                  <span>آگهی دهنده : {{adv.advertiser.firstname}} {{adv.advertiser.lastname}} </span>
+                </div>
+                <div class="description">
+                  <p>{{adv.message}}</p>
+                </div>
+
+            <div class="extra">
+              {% if adv.advertiser.sen_sound   %}
+                <div class="ui orange label">حساس به صدا</div>
+              {% endif %}
+              {% if adv.advertiser.sen_light   %}
+              <div class="ui yellow label">حساس به نور</div>
+            {% endif %}
+            <div class="ui purple label">{{adv.advertiser.city}}</div>
+            <div class="ui blue label">{{adv.advertiser.ent_year.strftime('%Y')}}</div>
+            <div class="ui pink label">{{adv.advertiser.edu_field}}</div>
+
+            </div>
+              </div>
+          </div>
+
+          {% endfor %}
+
+
+      </div>
+
+    </div>
+</div>
+
+
+<div class="four wide computer five wide tablet column">
+    <div class="ui segment">
+
+
+
+      <form class="ui form dw-font">
+
+        <div class="field">
+          <div class="ui checkbox">
+            <label>حساسیت به نور</label>
+            <input type="checkbox" tabindex="0" class="hidden">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui checkbox">
+            <label>حساسیت به صدا</label>
+            <input type="checkbox" tabindex="0" class="hidden">
+          </div>
+        </div>
+
+        <button class="ui fluid large teal submit button" type="submit">پیدا کن</button>
+        </form>
+
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock content %}
